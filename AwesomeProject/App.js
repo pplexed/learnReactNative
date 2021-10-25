@@ -7,35 +7,48 @@
  */
 
 import React from 'react';
-import CatNames from './components/CatNames';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-  Image,
-} from 'react-native';
+import {StyleSheet, Text, View, FlatList} from 'react-native';
 
-
+const items = [
+  {key: 'Devin'},
+  {key: 'Dan'},
+  {key: 'Dominic'},
+  {key: 'Jackson'},
+  {key: 'James'},
+  {key: 'Joel'},
+  {key: 'John'},
+  {key: 'Jillian'},
+  {key: 'Jimmy'},
+  {key: 'Julie'},
+];
 
 const App = () => {
-  const milo = 'thsi is milo';
+  const selection = 'select your developer and metacritic score range';
   return (
-    <ScrollView contentContainerStyle={styles.contentContainer}>
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>{milo}</Text>
-        <Image source={require('./img/milo.png')} />
-        <CatNames />
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <Text>Testuing this out</Text>
+      <FlatList
+        data={items}
+        renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+      />
+    </View>
   );
 };
+
+export default App;
+
 const styles = StyleSheet.create({
-  contentContainer: {
-    paddingVertical: 50,
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingTop: 22,
+    paddingHorizontal: 15,
+  },
+  item: {
+    textAlign: 'center',
+    marginTop: 20,
+    padding: 25,
+    fontSize: 30,
+    backgroundColor: 'steelblue',
   },
 });
-export default App;
